@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
+
 """
 Created on Sat Apr 12 15:08:46 2025
-
-@author: Dan
 """
-
-
 import numpy as np
 import matplotlib.pyplot as plot
     
@@ -891,7 +887,6 @@ def records_1500m():
     plot.title('Female 100m record progression by year')
     plot.show()
     
-
 def records_LJ():
     x0 = np.ones(18)
     X = np.column_stack((x0, year_mLJ))
