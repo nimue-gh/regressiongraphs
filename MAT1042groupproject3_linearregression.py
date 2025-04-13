@@ -5,6 +5,7 @@ Created on Sat Apr 12 15:08:46 2025
 import numpy as np
 import matplotlib.pyplot as plot
     
+
 time_m100 = np.array([
     10.60,
     10.40,
@@ -118,6 +119,7 @@ time_f100 = np.array([
     10.76,
     10.49
 ])
+
 year_f100 = np.array([
     1922,
     1922,
@@ -184,7 +186,6 @@ year_f100 = np.array([
     1984,
     1988
 ])
-
 
 time_m1500 = np.array([
     235.8,
@@ -837,26 +838,22 @@ def records_100m():
     beta = (np.linalg.inv(np.transpose(X)@X))@np.transpose(X)@time_m100
     time_m100_predict = beta[0] + year_m100*beta[1]
     
-    plot.plot(year_m100, time_m100, 'ro', label = "Year of record/Record time")
-    plot.plot(year_m100, time_m100_predict, label = 'Approximate correlation')
-    plot.xlabel('Year of record')
-    plot.ylabel('Record time /s')
-    plot.legend()
-    plot.title('Male 100m record progression by year')
-    plot.show()
-
+    plot.plot(year_m100, time_m100, 'co', label = "Male year of record/Record time")
+    plot.plot(year_m100, time_m100_predict, 'b', label = 'Male approximate correlation')
 
     x1 = np.ones(64)
     X2 = np.column_stack((x1, year_f100))
     beta2 = (np.linalg.inv(np.transpose(X2)@X2))@np.transpose(X2)@time_f100
     time_f100_predict = beta2[0] + year_f100*beta2[1]
     
-    plot.plot(year_f100, time_f100, 'ro', label = "Year of record/Record time")
-    plot.plot(year_f100, time_f100_predict, label = 'Approximate correlation')
+    plot.plot(year_f100, time_f100, 'mo', label = "Female year of record/Record time")
+    plot.plot(year_f100, time_f100_predict, 'r', label = 'Female approximate correlation')
+    
+    
     plot.xlabel('Year of record')
     plot.ylabel('Record time /s')
     plot.legend()
-    plot.title('Female 100m record progression by year')
+    plot.title('100m record progression by year')
     plot.show()
 
 def records_1500m():
@@ -865,26 +862,22 @@ def records_1500m():
     beta = (np.linalg.inv(np.transpose(X)@X))@np.transpose(X)@time_m1500
     time_m1500_predict = beta[0]+ year_m1500*beta[1]
     
-    plot.plot(year_m1500, time_m1500, 'ro', label = "Year of record/Record time")
-    plot.plot(year_m1500, time_m1500_predict, label = 'Approximate correlation')
-    plot.xlabel('Year of record')
-    plot.ylabel('Record time /s')
-    plot.legend()
-    plot.title('Male 1500m record progression by year')
-    plot.show()
-    
+    plot.plot(year_m1500, time_m1500, 'co', label = "Male year of record/Record time")
+    plot.plot(year_m1500, time_m1500_predict, 'b', label = 'Male approximate correlation')
     
     x1 = np.ones(27)
     X2 = np.column_stack((x1, year_f1500))
     beta2 = (np.linalg.inv(np.transpose(X2)@X2))@np.transpose(X2)@time_f1500
     time_f1500_predict = beta2[0] + year_f1500*beta2[1]
     
-    plot.plot(year_f1500, time_f1500, 'ro', label = "Year of record/Record time")
-    plot.plot(year_f1500, time_f1500_predict, label = 'Approximate correlation')
+    plot.plot(year_f1500, time_f1500, 'mo', label = "Female Year of record/Record time")
+    plot.plot(year_f1500, time_f1500_predict, 'r', label = 'Female pproximate correlation')
+    
+    
     plot.xlabel('Year of record')
     plot.ylabel('Record time /s')
     plot.legend()
-    plot.title('Female 100m record progression by year')
+    plot.title('1500m record progression by year')
     plot.show()
     
 def records_LJ():
@@ -893,26 +886,22 @@ def records_LJ():
     beta = (np.linalg.inv(np.transpose(X)@X))@np.transpose(X)@dist_mLJ
     dist_mLJ_predict = beta[0] + year_mLJ*beta[1]
     
-    plot.plot(year_mLJ, dist_mLJ, 'ro', label = "Year of record/Record distance")
-    plot.plot(year_mLJ, dist_mLJ_predict, label = 'Approximate correlation')
-    plot.xlabel('Year of record')
-    plot.ylabel('Record distance /m')
-    plot.legend()
-    plot.title('Male long jump record progression by year')
-    plot.show()
-
+    plot.plot(year_mLJ, dist_mLJ, 'co', label = "Male year of record/Record distance")
+    plot.plot(year_mLJ, dist_mLJ_predict, 'b', label = 'Male approximate correlation')
 
     x1 = np.ones(36)
     X2 = np.column_stack((x1, year_fLJ))
     beta2 = (np.linalg.inv(np.transpose(X2)@X2))@np.transpose(X2)@dist_fLJ
     dist_fLJ_predict = beta2[0] + year_fLJ*beta2[1]
     
-    plot.plot(year_fLJ, dist_fLJ, 'ro', label = "Year of record/Record distance")
-    plot.plot(year_fLJ, dist_fLJ_predict, label = 'Approximate correlation')
+    plot.plot(year_fLJ, dist_fLJ, 'mo', label = "Female year of record/Record distance")
+    plot.plot(year_fLJ, dist_fLJ_predict, 'r', label = 'Female approximate correlation')
+    
+    
     plot.xlabel('Year of record')
     plot.ylabel('Record distance /m')
     plot.legend()
-    plot.title('Female long jump record progression by year')
+    plot.title('Long jump record progression by year')
     plot.show()
     
 def records_HJ():
@@ -921,26 +910,22 @@ def records_HJ():
     beta = (np.linalg.inv(np.transpose(X)@X))@np.transpose(X)@dist_mHJ
     dist_mHJ_predict = beta[0] + year_mHJ*beta[1]
     
-    plot.plot(year_mHJ, dist_mHJ, 'ro', label = "Year of record/Record height")
-    plot.plot(year_mHJ, dist_mHJ_predict, label = 'Approximate correlation')
-    plot.xlabel('Year of record')
-    plot.ylabel('Record height /m')
-    plot.legend()
-    plot.title('Male high jump record progression by year')
-    plot.show()
-
+    plot.plot(year_mHJ, dist_mHJ, 'co', label = "Male year of record/Record height")
+    plot.plot(year_mHJ, dist_mHJ_predict, 'b', label = 'Male approximate correlation')
 
     x1 = np.ones(56)
     X2 = np.column_stack((x1, year_fHJ))
     beta2 = (np.linalg.inv(np.transpose(X2)@X2))@np.transpose(X2)@dist_fHJ
     dist_fHJ_predict = beta2[0] + year_fHJ*beta2[1]
     
-    plot.plot(year_fHJ, dist_fHJ, 'ro', label = "Year of record/Record height")
-    plot.plot(year_fHJ, dist_fHJ_predict, label = 'Approximate correlation')
+    plot.plot(year_fHJ, dist_fHJ, 'mo', label = "Female year of record/Record height")
+    plot.plot(year_fHJ, dist_fHJ_predict, 'r', label = 'Female approximate correlation')
+    
+    
     plot.xlabel('Year of record')
     plot.ylabel('Record height /m')
     plot.legend()
-    plot.title('Female height jump record progression by year')
+    plot.title('High jump record progression by year')
     plot.show()
 
 def records_MT():
@@ -949,26 +934,22 @@ def records_MT():
     beta = (np.linalg.inv(np.transpose(X)@X))@np.transpose(X)@time_mMT
     time_mMT_predict = beta[0] + year_mMT*beta[1]
     
-    plot.plot(year_mMT, time_mMT, 'ro', label = "Year of record/Record time")
-    plot.plot(year_mMT, time_mMT_predict, label = 'Approximate correlation')
-    plot.xlabel('Year of record')
-    plot.ylabel('Record time /s')
-    plot.legend()
-    plot.title('Male marathon record progression by year')
-    plot.show()
-
+    plot.plot(year_mMT, time_mMT, 'co', label = "Male year of record/Record time")
+    plot.plot(year_mMT, time_mMT_predict, 'b', label = 'Male approximate correlation')
 
     x1 = np.ones(45)
     X2 = np.column_stack((x1, year_fMT))
     beta2 = (np.linalg.inv(np.transpose(X2)@X2))@np.transpose(X2)@time_fMT
     time_fMT_predict = beta2[0] + year_fMT*beta2[1]
     
-    plot.plot(year_fMT, time_fMT, 'ro', label = "Year of record/Record time")
-    plot.plot(year_fMT, time_fMT_predict, label = 'Approximate correlation')
+    plot.plot(year_fMT, time_fMT, 'mo', label = "Female year of record/Record time")
+    plot.plot(year_fMT, time_fMT_predict, 'r', label = 'Female approximate correlation')
+    
+    
     plot.xlabel('Year of record')
     plot.ylabel('Record time /s')
     plot.legend()
-    plot.title('Female marathon record progression by year')
+    plot.title('Marathon record progression by year')
     plot.show()
     
 records_100m()
